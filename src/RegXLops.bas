@@ -1,11 +1,11 @@
-Attribute VB_Name = "RegUDF"
+Attribute VB_Name = "RegXLops"
 ' This module is for registering the functions modules so that we can get a tooltip for them.
 ' Update this module when you add new functions.
 ' https://stackoverflow.com/questions/4262421/how-to-put-a-tooltip-on-a-user-defined-function
 
 
 ' Master subroutine to loop through all functions, their descriptions, and categories.
-Sub RegisterUDFAll()
+Sub RegisterXLops()
 
     ' GENERAL STEPS
     ' 1. Create arrays of function names and descriptions for each module.
@@ -77,7 +77,7 @@ Sub RegisterUDFAll()
             Dim m_name, m_desc, m_cate As String
             m_name = m_names_all(i)(j) ' e.g. m_names_all(1)(1) = "FINDREPLACE"
             m_desc = m_descs_all(i)(j) ' e.g. m_descs_all(1)(1) = "Find and replace a character(s)."
-            m_cate = m_categories(i)   ' e.g. m_categories(1)   = "RGS_Text"
+            m_cate = m_categories(i)   ' e.g. m_categories(1)   = "funs_text"
                     
             Application.MacroOptions Macro:=m_name, Description:=m_desc, Category:=m_cate
         
