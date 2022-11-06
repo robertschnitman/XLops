@@ -95,7 +95,7 @@ Function FINDAFTER(cell As String, findchar As String)
     ' Otherwise, get everything after char.
     Else
     
-        FINDAFTER = Mid(cell, CharPos + Len(char)) ' We add Len(char) in case char has multiple characters (e.g. "Robert ").
+        FINDAFTER = Mid(cell, CharPos + Len(findchar)) ' We add Len(char) in case char has multiple characters (e.g. "Robert ").
         
     End If
 

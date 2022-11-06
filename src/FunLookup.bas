@@ -2,7 +2,7 @@ Attribute VB_Name = "FunLookup"
 ' ============================================================================
 ' REPO: XLops
 ' MODULE: FunLookup.bas
-' DESCRIPTION: Simplified variations of *LOOKUP()/*MATCH() functions.
+' DESCRIPTION: Simplified lookup functions.
 '
 ' LIST OF FUNCTIONS:
 ' FLOOKUP()
@@ -48,14 +48,14 @@ End Function
 ' DESCRIPTION: Simplified VLOOKUP() with desired column specified as a string.
 Function SLOOKUP(IDLookup As Variant, _
 				DataRange As Variant, _
-				ColLookup As Variant, _
+				FieldName As Variant, _
 				Optional IDApproxMatch As Variant = False, _
 				Optional ColMatchType As Variant = 2)
 
     With Application.WorksheetFunction
         
         ' VLOOKUP requires column number, which can be found with the XMatch function and the Rows property
-        ColIndex = .XMatch(ColLookup, DataRange.Rows(1), ColMatchType)
+        ColIndex = .XMatch(FieldName, DataRange.Rows(1), ColMatchType)
     
         Output = .VLookup(IDLookup, DataRange, ColIndex, IDApproxMatch)
     
