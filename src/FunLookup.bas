@@ -88,17 +88,29 @@ Function INDEX0(DataRange, RowNum As Integer, ColNum As Integer, Optional ElseVa
         ArrRef = DataRange
 
         ' Initial Output
-        Output = Application.WorksheetFunction.Index(ArrRef, RowNum, ColNum)
+        output = Application.WorksheetFunction.Index(ArrRef, RowNum, ColNum)
         
         ' Convert Output based on ElseValue
-        If Len(Output) = 0 Or CInt(Output) = 0 Then
+        If Application.WorksheetFunction.IsText(output) Then
         
-            Output = ElseValue
+            If Len(output) = 0 Then
+            
+                output = ElseValue
+                    
+            End If
+            
+        Else
+        
+            If CInt(output) = 0 Then
+            
+                output = ElseValue
                 
+            End If
+        
         End If
         
         ' Final Output
-        INDEX0 = Output
+        INDEX0 = output
 
 End Function
 ' ============================================================================

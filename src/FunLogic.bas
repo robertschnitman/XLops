@@ -58,7 +58,7 @@ End Function
 ' Function: IF0()
 ' Description: Perform an action depending on whether a cell is zero or length zero.
 
-Function IF0(cell As String, ValTrue, ValElse)
+Function IF0(cell As String, ValTrue)
 
     If ISLEN0(cell) = True or CInt(cell) = 0 Then
     
@@ -66,7 +66,7 @@ Function IF0(cell As String, ValTrue, ValElse)
         
     Else
     
-        output = ValElse
+        output = cell
         
     End If
     
@@ -123,7 +123,7 @@ End Function
 
 Function ISMAC()
 
-    If Mac Then
+    If Application.OperatingSystem Like "Mac*" Then
     
         output = True
         
